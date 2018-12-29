@@ -1,0 +1,85 @@
+/* Copyright Statement:
+ *
+ * This software/firmware and related documentation ("MediaTek Software") are
+ * protected under relevant copyright laws. The information contained herein
+ * is confidential and proprietary to MediaTek Inc. and/or its licensors.
+ * Without the prior written permission of MediaTek inc. and/or its licensors,
+ * any reproduction, modification, use or disclosure of MediaTek Software,
+ * and information contained herein, in whole or in part, shall be strictly
+ * prohibited.
+ */
+/* MediaTek Inc. (C) 2015. All rights reserved.
+ *
+ * BY OPENING THIS FILE, RECEIVER HEREBY UNEQUIVOCALLY ACKNOWLEDGES AND AGREES
+ * THAT THE SOFTWARE/FIRMWARE AND ITS DOCUMENTATIONS ("MEDIATEK SOFTWARE")
+ * RECEIVED FROM MEDIATEK AND/OR ITS REPRESENTATIVES ARE PROVIDED TO RECEIVER ON
+ * AN "AS-IS" BASIS ONLY. MEDIATEK EXPRESSLY DISCLAIMS ANY AND ALL WARRANTIES,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NONINFRINGEMENT.
+ * NEITHER DOES MEDIATEK PROVIDE ANY WARRANTY WHATSOEVER WITH RESPECT TO THE
+ * SOFTWARE OF ANY THIRD PARTY WHICH MAY BE USED BY, INCORPORATED IN, OR
+ * SUPPLIED WITH THE MEDIATEK SOFTWARE, AND RECEIVER AGREES TO LOOK ONLY TO SUCH
+ * THIRD PARTY FOR ANY WARRANTY CLAIM RELATING THERETO. RECEIVER EXPRESSLY
+ * ACKNOWLEDGES
+ * THAT IT IS RECEIVER'S SOLE RESPONSIBILITY TO OBTAIN FROM ANY THIRD PARTY ALL
+ * PROPER LICENSES
+ * CONTAINED IN MEDIATEK SOFTWARE. MEDIATEK SHALL ALSO NOT BE RESPONSIBLE FOR
+ * ANY MEDIATEK
+ * SOFTWARE RELEASES MADE TO RECEIVER'S SPECIFICATION OR TO CONFORM TO A
+ * PARTICULAR
+ * STANDARD OR OPEN FORUM. RECEIVER'S SOLE AND EXCLUSIVE REMEDY AND MEDIATEK'S
+ * ENTIRE AND
+ * CUMULATIVE LIABILITY WITH RESPECT TO THE MEDIATEK SOFTWARE RELEASED HEREUNDER
+ * WILL BE,
+ * AT MEDIATEK'S OPTION, TO REVISE OR REPLACE THE MEDIATEK SOFTWARE AT ISSUE,
+ * OR REFUND ANY SOFTWARE LICENSE FEES OR SERVICE CHARGE PAID BY RECEIVER TO
+ * MEDIATEK FOR SUCH MEDIATEK SOFTWARE AT ISSUE.
+ */
+
+#ifndef SCP_IPI_INT_H
+#define SCP_IPI_INT_H
+#include <bit_op.h>
+
+/* SCP IPC register mapping & definition */
+/** @ingroup type_group_scp_ipc_def
+ * @{
+ */
+#define SCP_IPI_BASE        (0x40900000)
+extern unsigned char _SCP_IPC_SHARE_BUFFER_ADDR;
+#define SCP_IPC_SHARE_BUFFER                                                   \
+    ((volatile unsigned int *)&_SCP_IPC_SHARE_BUFFER_ADDR)
+#define GIPC_TO_SCP_REG     \
+    (*(volatile unsigned int *)(SCP_IPI_BASE+GIPC_IN_1))
+#define SCP_A_TO_HOST_REG   \
+    (*(volatile unsigned int *)(SCP_IPI_BASE+SCP_TO_HOST_INT))
+#define SCP_A_TO_DVFSCTL_REG    \
+    (*(volatile unsigned int *)(SCP_IPI_BASE+SCP_TO_DVFSCTL_INT))
+
+#define SEMA_0_SCP  BIT(0)
+#define IPC_SCP2HOST    BIT(0)
+#define IPC_SCP2DVFSCTL BIT(0)
+#define WDT_INT     BIT(8)
+#define IPC0_BIT    BIT(0)
+
+#define IPC_HOST2SCP_A      IPC0_BIT
+#define IPI_PRINT_THRESHOLD 1000
+
+#define IPC_SCP2DVFSCTL BIT(0)
+
+#define SCP_TO_HOST_REG     SCP_A_TO_HOST_REG
+#define SCP_TO_DVFSCTL_REG  SCP_A_TO_DVFSCTL_REG
+#define IPC_CLEAR_BIT       IPC_HOST2SCP_A
+#define IPC_HANDLER_IRQn    IPC0_IRQn
+
+#define GP_REGISTER_SIZE    8
+#define MAILBOX_IN_LENGTH   32
+#define MAILBOX_OUT_LENGTH  11
+
+uint32_t mbox_in_buf[MAILBOX_IN_LENGTH];
+uint32_t mbox_out_buf[MAILBOX_OUT_LENGTH];
+/** @}
+ */
+
+void ipi_status_dump(void);
+static void ipi_scp_to_host(enum ipi_id id);
+#endif

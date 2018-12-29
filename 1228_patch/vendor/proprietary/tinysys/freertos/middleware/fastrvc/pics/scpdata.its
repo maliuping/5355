@@ -1,0 +1,40 @@
+/dts-v1/;
+
+/ {
+		description = "scp fitImage for fastrvc";
+		#address-cells = <1>;
+		images {
+			logo {
+				description = "logo";
+				data = /incbin/("scp-logo.lz4");
+				type = "loadable";
+				compression = "lz4";
+				load = <0x4D000000>;
+				hash@1 {
+					algo = "sha256";
+				};
+			};
+
+			guideline {
+				description = "guideline";
+				data = /incbin/("scp-guideline.lz4");
+				type = "loadable";
+				compression = "lz4";
+				load = <0x4D800000>;
+				hash@1 {
+					algo = "sha256";
+				};
+			};
+
+			warnmsg {
+				description = "warning message";
+				data = /incbin/("scp-warning.lz4");
+				type = "loadable";
+				compression = "lz4";
+				load = <0x4E000000>;
+				hash@1 {
+					algo = "sha256";
+				};
+			};
+		};
+};

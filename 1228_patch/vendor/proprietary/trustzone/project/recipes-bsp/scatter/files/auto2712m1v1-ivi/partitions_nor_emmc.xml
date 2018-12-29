@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<partition lba="27262976">
+	<entry type="{0FC63DAF-8483-4772-8E79-3D69D8477DE4}" start="59392" end="59647" name="seccfg" />
+	<entry type="{0FC63DAF-8483-4772-8E79-3D69D8477DE4}" start="59648" end="60415" name="uboot" />
+	<entry type="{0FC63DAF-8483-4772-8E79-3D69D8477DE4}" start="60416" end="60927" name="dtbo" />
+	<entry type="{0FC63DAF-8483-4772-8E79-3D69D8477DE4}" start="60928" end="126463" name="boot" />
+	<entry type="{0FC63DAF-8483-4772-8E79-3D69D8477DE4}" start="180000" end="190000" name="scpsys" />
+	<entry type="{0FC63DAF-8483-4772-8E79-3D69D8477DE4}" start="190464" end="8579071" name="system" />
+	<entry type="{0FC63DAF-8483-4772-8E79-3D69D8477DE4}" start="8579072" end="12773375" name="vendor" />
+	<entry type="{0FC63DAF-8483-4772-8E79-3D69D8477DE4}" start="12773376" end="12904447" name="cache" />
+	<entry type="{0FC63DAF-8483-4772-8E79-3D69D8477DE4}" start="12904448" end="13035519" name="recovery" />
+	<entry type="{0FC63DAF-8483-4772-8E79-3D69D8477DE4}" start="13035520" end="13084671" name="misc" />
+	<entry type="{0FC63DAF-8483-4772-8E79-3D69D8477DE4}" start="13084672" end="13215743" name="persist" />
+	<entry type="{0FC63DAF-8483-4772-8E79-3D69D8477DE4}" start="13215744" end="25798655" name="userdata" />
+        <entry type="{0FC63DAF-8483-4772-8E79-3D69D8477DE4}" start="25798656" end="25819135" name="vbmeta" />
+	<entry type="{0FC63DAF-8483-4772-8E79-3D69D8477DE4}" start="25819136" end="25827327" name="scpdata" />
+        <entry type="{0FC63DAF-8483-4772-8E79-3D69D8477DE4}" start="25827328" end="25829375" name="scpcfg" />
+        <entry type="{0FC63DAF-8483-4772-8E79-3D69D8477DE4}" start="25829376" end="25894911" name="metadata" />
+</partition>
