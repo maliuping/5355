@@ -1,0 +1,28 @@
+01-01 08:00:04.358  2636  2636 I RTAPD   : ===========main========
+01-01 08:00:04.412  2636  2636 D RtapdRvc: ComdMeterImpl constructor
+01-01 08:00:04.412  2636  2636 I rvc     : RtapdRvcEventDispatch constructor
+01-01 08:00:04.412  2636  2636 D rvc     : RvcEventDispatch::setHandler
+01-01 08:00:05.969  2636  2636 D RtapdRvc: =======RtapdRvcImpl::onAwake
+01-01 08:00:05.973  2636  2636 D rtapdmanager: HIDL:rvc registerAsService success
+01-01 08:00:05.973  2636  2636 D rtapdmanager: ==============instantiate
+01-01 08:00:10.481  4288  4288 D rvc     : RvcReceiver()
+01-01 08:00:10.765  2636  3396 D RtapdRvc: RtapdRvcImpl::rvcPackDataSendToRtap() HIDL OK;data number :1
+01-01 08:00:10.765  2636  3396 D RtapdRvc: sSendToRtapData.dwDataNum : 1
+01-01 08:00:10.765  2636  3396 D RtapdRvc: sSendToRtapData.byData[0]:  29
+01-01 08:00:10.770  2636  3396 D RtapdRvc: RtapdRvcImpl::registerListener() serviceId[0] HIDL OK
+01-01 08:00:10.770  2636  2809 D RtapdRvc: MAP:IN registerListenerID:0
+01-01 08:00:10.770  2636  3396 D RtapdRvc: RtapdRvcMessageHandler::registerListener serviceId[0] PostMessage[0] OK
+01-01 08:00:10.777  2636  2976 D RtapdRvc: RtapdRvcMessageHandler::onReceiveDatafromRtap()
+01-01 08:00:10.777  2636  2976 D RtapdRvc: rtapData.byData[0]: 2a
+01-01 08:00:10.777  2636  2976 D RtapdRvc: rtapData.byData[1]: 2
+01-01 08:00:10.777  2636  2809 D RtapdRvc: RtapdRvcMessageHandler::notifyRvcinfofromRtap()
+01-01 08:00:10.778  2636  2809 D RtapdRvc: notify serviceID[0]
+01-01 08:00:12.874  2636  3396 D RtapdRvc: RtapdRvcImpl::rvcPackDataSendToRtap() HIDL OK;data number :2
+01-01 08:00:12.875  2636  3396 D RtapdRvc: sSendToRtapData.dwDataNum : 2
+01-01 08:00:12.875  2636  3396 D RtapdRvc: sSendToRtapData.byData[0]:  20
+01-01 08:00:12.875  2636  3396 D RtapdRvc: sSendToRtapData.byData[1]:  2
+01-01 08:00:12.888  2636  2976 D RtapdRvc: RtapdRvcMessageHandler::onReceiveDatafromRtap()
+01-01 08:00:12.888  2636  2976 D RtapdRvc: rtapData.byData[0]: 21
+01-01 08:00:12.888  2636  2976 D RtapdRvc: rtapData.byData[1]: 1
+01-01 08:00:12.888  2636  2809 D RtapdRvc: RtapdRvcMessageHandler::notifyRvcinfofromRtap()
+01-01 08:00:12.888  2636  2809 D RtapdRvc: notify serviceID[0]

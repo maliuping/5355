@@ -1,0 +1,64 @@
+/**
+ * Copyright @ 2013 - 2015 Suntec Software(Shanghai) Co., Ltd.
+ * All Rights Reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are NOT permitted except as agreed by
+ * Suntec Software(Shanghai) Co., Ltd.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ */
+
+package iauto.hardware.rtapd.rvc@1.0;
+
+/**
+ * Specifies a enum which describe the Register ListenerID
+ */
+enum EnRtapdRvcListenerID : uint8_t {
+    EN_LIS_ID_RVC = 0x00,	         /*For RVC C++ Service		*/
+    EN_LIS_ID_TEST = 0x01,	         /*For Comd Test */
+};
+
+/**
+ * Specifies a enum which describe the Register Event ID
+ */
+enum EnRvcEventId : uint64_t{
+	EN_RTAP_TO_RVC_MSG                   = 1 << 0,
+};
+
+typedef bitfield<EnRvcEventId> EnRvcEventIds;
+
+/**
+ * Specifies a enum which describe the function execution result
+ * used in function : every function in IComdMeter.hal
+ */
+enum EnRvcFuncResult : uint8_t {
+    RVC_RESULT_OK = 0x00,        //OK
+    RVC_RESULT_ERR = 0x01,       //fail
+    RVC_RESULT_UNKNOW = 0x02,   //unknow
+};
+
+
+
+/**
+ * Specifies a struct which describe the MCAN meter cmd information
+ * package one type
+ */
+struct StRvcFromRtapCmdDataInfo{
+	int32_t dwDataNum;
+	vec<uint8_t>  byData;
+};
+
+/**
+ * Specifies a struct which describe the MCAN meter cmd information
+ * package one type
+ */
+struct StRvcToRtapCmdDataInfo{
+	int32_t dwDataNum;
+	vec<uint8_t>  byData; 
+};
+
+
+
